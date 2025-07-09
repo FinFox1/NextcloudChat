@@ -1,0 +1,108 @@
+/* Admin Settings Styles */
+
+.section #nextcloud_chat_admin_settings {
+    max-width: 900px;
+}
+
+.settings-hint {
+    color: var(--color-text-maxcontrast);
+    margin-bottom: 20px;
+}
+
+#admin-settings-content {
+    margin-top: 20px;
+}
+
+/* Form styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="url"],
+.form-group input[type="password"],
+.form-group input[type="number"],
+.form-group select {
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-group .help-text {
+    font-size: 13px;
+    color: var(--color-text-maxcontrast);
+    margin-top: 5px;
+}
+
+/* Status indicators */
+.status-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status-indicator.success {
+    background-color: var(--color-success-light);
+    color: var(--color-success-dark);
+}
+
+.status-indicator.error {
+    background-color: var(--color-error-light);
+    color: var(--color-error-dark);
+}
+
+.status-indicator.warning {
+    background-color: var(--color-warning-light);
+    color: var(--color-warning-dark);
+}
+
+/* Button groups */
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* Configuration sections */
+.config-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+}
+
+.config-section h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Connection test results */
+.connection-test-result {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.connection-test-result.success {
+    background-color: var(--color-success-light);
+    border: 1px solid var(--color-success);
+    color: var(--color-success-dark);
+}
+
+.connection-test-result.error {
+    background-color: var(--color-error-light);
+    border: 1px solid var(--color-error);
+    color: var(--color-error-dark);
+}
