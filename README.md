@@ -15,6 +15,7 @@ Installation Steps
 1. Clone this repository to your Nextcloud apps directory:
 
 cd /path/to/nextcloud/apps
+
 git clone <repository-url> nextcloud_chat
 
 2. Install dependencies:
