@@ -1,94 +1,38 @@
-Setup Instructions
-Server Requirements
+# Nextcloud Chat
 
-Element Server Suite Community Edition: Set up using the Helm charts from the repository
+A Matrix-based chat and video calling application for Nextcloud, powered by Element Web and Element Call.
 
-Matrix Homeserver: Configure Synapse or Dendrite
+## Features
 
-Element Call Backend: Set up LiveKit for video calling
+- **Secure Messaging**: End-to-end encrypted chat using the Matrix protocol
+- **Video Calls**: High-quality video calls with Element Call integration
+- **Federation**: Chat with users on other Matrix homeservers
+- **Modern UI**: Built with Vue 3 and Nextcloud design system
+- **Nextcloud Integration**: Seamless integration with Nextcloud ecosystem
 
-Nextcloud Server 31: With PHP 8.1+
+## Requirements
 
+- Nextcloud Server 31+
+- PHP 8.1+
+- Node.js 18+ (for building)
+- Matrix Homeserver (Synapse, Dendrite, etc.)
+- Element Server Suite Community Edition
+- Element Call instance
 
-Installation Steps
+## Installation
 
-1. Clone this repository to your Nextcloud apps directory:
+### 1. Install the App
 
-   cd /path/to/nextcloud/apps
-   git clone <repository-url> nextcloud_chat
+```bash
+# Clone to your Nextcloud apps directory
+cd /path/to/nextcloud/apps
+git clone <repository-url> nextcloud_chat
 
-3. Install dependencies:
-cd nextcloud_chat  
-composer install  
-npm install  
+# Install dependencies and build
+cd nextcloud_chat
+composer install --no-dev
+npm ci
+npm run build
 
-4. Build the frontend:
-npm run build  
-
-5. Enable the app in Nextcloud:
+# Enable the app
 php occ app:enable nextcloud_chat
-
-
-
-Configure Matrix server settings in Nextcloud admin panel
-
-Element Integration
-The app integrates Element Web by:
-
-Embedding it as an iframe with custom configuration
-Using Matrix JS SDK for direct API access
-Integrating Element Call as a widget for video calls
-Providing seamless SSO between Nextcloud and Matrix
-
-Key Features
-
-Secure Messaging: End-to-end encrypted chat using Matrix protocol
-Video Calling: High-quality calls with Element Call integration
-Federation: Chat with users on other Matrix homeservers
-Nextcloud Integration: Deep integration with Nextcloud ecosystem
-Modern UI: Vue 3 with Nextcloud design system
-
-This comprehensive implementation provides a solid foundation for replacing Nextcloud Talk with a Matrix-based solution while maintaining the familiar Nextcloud user experience.
-
-Grafic:
-
-nextcloud_chat/
-├── appinfo/
-│   ├── info.xml
-│   ├── routes.php
-│   └── application.php
-├── lib/
-│   ├── Controller/
-│   │   ├── PageController.php
-│   │   ├── ApiController.php
-│   │   ├── ElementController.php
-│   │   └── MatrixController.php
-│   ├── Service/
-│   │   ├── ElementService.php
-│   │   ├── MatrixService.php
-│   │   └── ConfigService.php
-│   └── AppInfo/
-│       └── Application.php
-├── src/
-│   ├── main.js
-│   ├── App.vue
-│   ├── router/
-│   │   └── index.js
-│   ├── components/
-│   │   ├── Chat/
-│   │   ├── Call/
-│   │   └── Settings/
-│   ├── views/
-│   │   ├── ChatView.vue
-│   │   ├── CallView.vue
-│   │   └── SettingsView.vue
-│   └── store/
-│       └── index.js
-├── templates/
-│   └── index.php
-├── css/
-├── js/
-├── package.json
-├── webpack.config.js
-├── composer.json
-└── README.md
