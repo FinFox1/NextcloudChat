@@ -1,12 +1,16 @@
 Setup Instructions
-1. Server Requirements
+Server Requirements
 
 Element Server Suite Community Edition: Set up using the Helm charts from the repository
+
 Matrix Homeserver: Configure Synapse or Dendrite
+
 Element Call Backend: Set up LiveKit for video calling
+
 Nextcloud Server 31: With PHP 8.1+
 
-2. Installation Steps
+
+Installation Steps
 
 1. Clone this repository to your Nextcloud apps directory:
 
@@ -25,9 +29,10 @@ npm run build
 php occ app:enable nextcloud_chat
 
 
+
 Configure Matrix server settings in Nextcloud admin panel
 
-3. Element Integration
+Element Integration
 The app integrates Element Web by:
 
 Embedding it as an iframe with custom configuration
@@ -35,7 +40,7 @@ Using Matrix JS SDK for direct API access
 Integrating Element Call as a widget for video calls
 Providing seamless SSO between Nextcloud and Matrix
 
-4. Key Features
+Key Features
 
 Secure Messaging: End-to-end encrypted chat using Matrix protocol
 Video Calling: High-quality calls with Element Call integration
