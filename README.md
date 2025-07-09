@@ -14,19 +14,18 @@ Installation Steps
 
 1. Clone this repository to your Nextcloud apps directory:
 
-cd /path/to/nextcloud/apps
+   cd /path/to/nextcloud/apps
+   git clone <repository-url> nextcloud_chat
 
-git clone <repository-url> nextcloud_chat
+3. Install dependencies:
+cd nextcloud_chat  
+composer install  
+npm install  
 
-2. Install dependencies:
-cd nextcloud_chat
-composer install
-npm install
+4. Build the frontend:
+npm run build  
 
-3. Build the frontend:
-npm run build
-
-4. Enable the app in Nextcloud:
+5. Enable the app in Nextcloud:
 php occ app:enable nextcloud_chat
 
 
@@ -50,3 +49,46 @@ Nextcloud Integration: Deep integration with Nextcloud ecosystem
 Modern UI: Vue 3 with Nextcloud design system
 
 This comprehensive implementation provides a solid foundation for replacing Nextcloud Talk with a Matrix-based solution while maintaining the familiar Nextcloud user experience.
+
+Grafic:
+
+nextcloud_chat/
+├── appinfo/
+│   ├── info.xml
+│   ├── routes.php
+│   └── application.php
+├── lib/
+│   ├── Controller/
+│   │   ├── PageController.php
+│   │   ├── ApiController.php
+│   │   ├── ElementController.php
+│   │   └── MatrixController.php
+│   ├── Service/
+│   │   ├── ElementService.php
+│   │   ├── MatrixService.php
+│   │   └── ConfigService.php
+│   └── AppInfo/
+│       └── Application.php
+├── src/
+│   ├── main.js
+│   ├── App.vue
+│   ├── router/
+│   │   └── index.js
+│   ├── components/
+│   │   ├── Chat/
+│   │   ├── Call/
+│   │   └── Settings/
+│   ├── views/
+│   │   ├── ChatView.vue
+│   │   ├── CallView.vue
+│   │   └── SettingsView.vue
+│   └── store/
+│       └── index.js
+├── templates/
+│   └── index.php
+├── css/
+├── js/
+├── package.json
+├── webpack.config.js
+├── composer.json
+└── README.md
