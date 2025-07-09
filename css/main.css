@@ -1,0 +1,175 @@
+/* Main styles for Nextcloud Chat */
+
+.app-nextcloud_chat {
+    height: 100vh;
+    display: flex;
+}
+
+.app-navigation {
+    width: 300px;
+    border-right: 1px solid var(--color-border);
+    background: var(--color-main-background);
+}
+
+.app-content {
+    flex: 1;
+    background: var(--color-main-background);
+}
+
+/* Chat specific styles */
+.chat-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.element-web-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Call widget styles */
+.element-call-widget {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    width: 400px;
+    max-height: 600px;
+    background: var(--color-main-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-large);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
+    z-index: 2000;
+    overflow: hidden;
+}
+
+.call-header {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--color-background-dark);
+}
+
+.call-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Settings styles */
+.settings-section {
+    margin-bottom: 24px;
+    padding: 16px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+}
+
+.settings-section h3 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    background: var(--color-main-background);
+    color: var(--color-main-text);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .app-nextcloud_chat {
+        flex-direction: column;
+    }
+    
+    .app-navigation {
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--color-border);
+    }
+    
+    .element-call-widget {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        max-height: none;
+        border-radius: 0;
+    }
+}
+
+/* Dark theme support */
+body[data-theme='dark'] .app-nextcloud_chat {
+    background: var(--color-main-background);
+    color: var(--color-main-text);
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 16px;
+    border-radius: var(--border-radius);
+    color: white;
+    font-weight: 500;
+    z-index: 3000;
+    min-width: 300px;
+}
+
+.notification.success {
+    background: var(--color-success);
+}
+
+.notification.error {
+    background: var(--color-error);
+}
+
+.notification.warning {
+    background: var(--color-warning);
+}
+
+/* Loading states */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    color: var(--color-text-maxcontrast);
+}
+
+.loading::after {
+    content: '';
+    width: 32px;
+    height: 32px;
+    border: 2px solid var(--color-loading-light);
+    border-top: 2px solid var(--color-loading-dark);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
