@@ -1,3 +1,5 @@
+# Under Construction - feel free to contribute 
+
 # Nextcloud Chat
 
 A Matrix-based chat and video calling application for Nextcloud, powered by Element Web and Element Call.
