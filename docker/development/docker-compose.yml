@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  nextcloud:
+    image: nextcloud:latest
+    ports:
+      - "8080:80"
+    environment:
+      - MYSQL_HOST=db
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_PASSWORD=nextcloud
+      - NEXTCLOUD_ADMIN_USER=admin
+      - NEXTCLOUD_ADMIN_PASSWORD=admin
+    volumes:
+      - nextcloud_data:/var/www/html
+      - ../../:/var/www/html/apps/nextcloud_chat
+    depends_on:
+      - db
+      - matrix
+
+  db:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_PASSWORD=nextcloud
+    volumes:
+      - db_data:/var/lib/mysql
+
+  matrix:
+    image: matrixdotorg/synapse:latest
+    ports:
+      - "8008:8008"
+    environment:
+      - SYNAPSE_SERVER_NAME=matrix.local
+      - SYNAPSE_REPORT_STATS=no
+    volumes:
+      - matrix_data:/data
+      - ./matrix-config:/data/config
+
+  element-web:
+    image: vectorim/element-web:latest
+    ports:
+      - "8081:80"
+    volumes:
+      - ./element-config.json:/app/config.json
+
+  element-call:
+    image: vectorim/element-call:latest
+    ports:
+      - "8082:8080"
+    environment:
+      - REACT_APP_DEFAULT_HOMESERVER_URL=http://matrix:8008
+
+volumes:
+  nextcloud_data:
+  db_data:
+  matrix_data:
